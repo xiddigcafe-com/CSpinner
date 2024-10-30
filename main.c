@@ -20,6 +20,7 @@ void spinner(){
         it0 = (it0 + 1) % strlen(spinnerPositions);
         printf("\b");
         delay(1);
+        fflush(stdout);
     }
 }
 
