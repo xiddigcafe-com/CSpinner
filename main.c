@@ -2,13 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
-//Function to provide a small delay
-void delay(int numberOfSeconds){
-    int milliseconds = 1000 * numberOfSeconds;
-    clock_t start_time = clock();
-    while (clock() < start_time + milliseconds);
-}
 
 //Function to spin stuff
 void spinner(){
@@ -19,7 +14,8 @@ void spinner(){
         printf("%c", spinnerPositions[it0]);
         it0 = (it0 + 1) % strlen(spinnerPositions);
         printf("\b");
-        delay(1);
+        sleep(1);
+        fflush(stdout);
     }
 }
 
